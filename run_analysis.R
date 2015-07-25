@@ -77,6 +77,30 @@ names(tidy_df) <- c("SubjectID", "Activity",
 tidy_df <- distinct(tidy_df)
 tidy_df <- arrange(tidy_df, SubjectID)
 
+# Convert to long form of data by gathering all columns as a 'Feature' variable
+tidy_df_long <- gather(tidy_df, Feature, Average, -c(SubjectID, Activity))
+
+# Clean up the feature names
+feature_names_split <- strsplit(as.character(tidy_df_long$Feature), "\\.")
+
+process_feature_names <- function(x) {
+    if(length(x) == 3) {
+        paste(x[1], ".", strsplit(x[3], "_")[[1]][1], "_", x[2], sep = "")
+    }
+    else if(length(x) == 2) {
+        paste(x[1], "_", strsplit(x[2], "_")[[1]][1], sep = "")
+    }
+    else {
+        
+    }
+}
+
+tidy_df_long$Feature <- as.factor(sapply(feature_names_split, process_feature_names))
+
+# Separate the Feature and Measurement Type into two variables
+tidy_df_long <- separate(tidy_df_long, Feature, c("Feature", "MeasurementType"), 
+                         sep = "_", remove = TRUE)
+
 # Write tidy dataset to a file
-write.table(tidy_df, "UCI_HAR_Tidy_Dataset_Coursera_Project.txt", 
+write.table(tidy_df_long, "UCI_HAR_Tidy_Dataset_Coursera_Project.txt", 
             row.names = FALSE)

@@ -26,30 +26,81 @@ Description on how to create the tidy data file (1. download the data, ...)/
 ###Cleaning of the data
 Short, high-level description of what the cleaning script does. [link to the readme document that describes the code in greater detail]()
 
-##Description of the variables in the tiny_data.txt file
-General description of the file including:
- - Dimensions of the dataset
+##Description of the variables in the UCI_HAR_Tidy_Dataset_Coursera_Project.txt file
+ - Dimensions of the dataset - 11880 rows x 5 cols
  - Summary of the data
- - Variables present in the dataset
+ - Variables present in the dataset   
+ [1] SubjectID                            
+ [2] Activity    
+ [3] Feature   
+ [4] MeasurementType  
+ [5] Average  
 
-(you can easily use Rcode for this, just load the dataset and provide the information directly form the tidy data file)
+###SubjectID 
+Represents the unique ID of the subject (person) performing the physical activity
+for the tests.
 
-###Variable 1 (repeat this section for all variables in the dataset)
-Short description of what the variable describes.
+ - Class of the variable -- integer
+ - Unique values/levels of the variable -- 1:30
+ - Unit of measurement -- None
 
-Some information on the variable including:
- - Class of the variable
- - Unique values/levels of the variable
- - Unit of measurement (if no unit of measurement list this as well)
- - In case names follow some schema, describe how entries were constructed (for example time-body-gyroscope-z has 4 levels of descriptors. Describe these 4 levels).
+###Activity
+Represents the physical activity performed by the subject (SubjectID) for the tests.
 
-(you can easily use Rcode for this, just load the dataset and provide the information directly form the tidy data file)
+ - Class of the variable -- factor
+ - Unique values/levels of the variable -- LAYING, SITTING, STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS
+ - Unit of measurement -- None
 
-####Notes on variable 1:
-If available, some additional notes on the variable not covered elsewehere. If no notes are present leave this section out.
+###Feature
+Represents the class of measurement (Feature) corresponding to the subject (SubjectID) and the physical activity (Activity) for the tests.
 
-##Sources
-Sources you used if any, otherise leave out.
+ - Class of the variable -- factor
+ - Unique values/levels of the variable 
+    + tBodyAcc.X -- Time domain acceleration of the body in the X direction as measured by the accelerometer.  
+    + tBodyAcc.Y -- Time domain acceleration of the body in the Y direction as measured by the accelerometer.   
+    + tBodyAcc.Z -- Time domain acceleration of the body in the Z direction as measured by the accelerometer.  
+    + tGravityAcc.X -- Time domain acceleration of the body in the X direction as measured by the accelerometer.
+    + tGravityAcc.Y -- Time domain acceleration of the body in the X direction as measured by the accelerometer.
+    + tGravityAcc.Z -- Time domain acceleration of the body in the X direction as measured by the accelerometer.  
+    + tBodyAccJerk.X -- Time domain acceleration of the body in the X direction as measured by the accelerometer.  
+    + tBodyAccJerk.Y -- Time domain acceleration of the body in the X direction as measured by the accelerometer.    
+    + tBodyAccJerk.Z -- Time domain acceleration of the body in the X direction as measured by the accelerometer.    
+    + tBodyGyro.X -- Time domain acceleration of the body in the X direction as measured by the accelerometer.     
+    + tBodyGyro.Y -- Time domain acceleration of the body in the X direction as measured by the accelerometer.   
+    + tBodyGyro.Z -- Time domain acceleration of the body in the X direction as measured by the accelerometer.   
+    + tBodyGyroJerk.X -- Time domain acceleration of the body in the X direction as measured by the accelerometer.     
+    + tBodyGyroJerk.Y -- Time domain acceleration of the body in the X direction as measured by the accelerometer.   
+    + tBodyGyroJerk.Z -- Time domain acceleration of the body in the X direction as measured by the accelerometer.   
+   + tBodyAccMag --  
+   + tGravityAccMag --   
+   + tBodyAccJerkMAg --  
+   + tBodyGyroMag --  
+   + tBodyGyroJerkMag --  
+   + fBodyAcc.X --  
+   + fBodyAcc.Y --  
+   + fBodyAcc.Z --
+   + fBodyAccJerk.X --  
+   + fBodyAccJerk.Y --  
+   + fBodyAccJerk.Z --  
+   + fBodyGyro.X --  
+   + fBodyGyro.Y --  
+   + fBodyGyro.Z --  
+   + fBodyAccMag --  
+   + fBodyBodyAccJerkMag --      
+   + fBodyBodyGyroMag --         
+   + fBodyBodyGyroJerkMag --     
+ - Unit of measurement -- None
 
-##Annex
-If you used any code in the codebook that had the echo=FALSE attribute post this here (make sure you set the results parameter to 'hide' as you do not want the results to show again)
+###MeasurementType
+Represents the type of measurement (mean or standard deviation) recorded corresponding to the subject (SubjectID), the physical activity (Activity) and the Feature combinations for the tests.
+
+ - Class of the variable -- factor
+ - Unique values/levels of the variable -- mean, std
+ - Unit of measurement -- None
+
+###Average
+Average of the mean or average of the standard deviation of the measurement recorded corresponding to the subject and the physical activity. 
+
+ - Class of the variable -- numeric
+ - Unique values/levels of the variable -- Values in [-1, 1]
+ - Unit of measurement -- None
